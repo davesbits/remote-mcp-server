@@ -1,23 +1,20 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "flaire-mcp",
+	"name": "remote-mcp-server",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-03-10",
 	"migrations": [
 		{
-			"new_sqlite_classes": ["MyMCP"],
-			"tag": "v1"
+			"tag": "v1",
+			"new_classes": ["MyMCP"]
 		}
 	],
 	"durable_objects": {
 		"bindings": [
 			{
 				"class_name": "MyMCP",
-				"name": "MCP_OBJECT"
+				"name": "MCP_OBJECT",
+				"script_name": "remote-mcp-server"
 			}
 		]
 	},
@@ -30,5 +27,8 @@
 	"observability": {
 		"enabled": true
 	},
-	"assets": { "directory": "./static/", "binding": "ASSETS" }
+	"assets": { 
+		"directory": "./static/", 
+		"binding": "ASSETS" 
+	}
 }

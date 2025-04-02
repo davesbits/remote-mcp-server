@@ -1,0 +1,71 @@
+# Remote MCP Server with OpenAPI Documentation
+
+This project combines a remote MCP server with OpenAPI documentation, making it easy to explore and understand the available MCP tools.
+
+## Integration Steps
+
+To integrate the OpenAPI functionality into your existing remote-mcp-server:
+
+1. Install the required dependencies:
+   ```bash
+   npm install --save @asteasolutions/zod-to-openapi swagger-ui
+   npm install --save-dev @types/swagger-ui
+   ```
+
+2. Create a new file `src/openapi.ts` with the helper functions for OpenAPI integration.
+
+3. Update your `src/index.ts` file with the changes to register and document your MCP tools.
+
+Alternatively, you can run the provided installation script:
+```bash
+chmod +x install-openapi.sh
+./install-openapi.sh
+```
+
+## Using the OpenAPI Documentation
+
+After starting the server, you can access the OpenAPI documentation at:
+
+```
+http://localhost:8787/docs
+```
+
+This will display a Swagger UI interface that shows all available MCP tools, their parameters, and expected responses. You can:
+
+1. Browse the available endpoints
+2. See the required parameters and their types
+3. Test the endpoints directly from the browser
+4. Understand the response format
+
+The documentation is automatically generated based on the registered MCP tools.
+
+### Demo Tool: Text Analyzer
+
+The integration comes with a demo text analysis tool that provides:
+- Word count
+- Character count
+- Basic keyword extraction
+
+You can use this as a template to create your own tools with proper OpenAPI documentation.
+
+## API Schema
+
+You can also access the raw OpenAPI schema at:
+
+```
+http://localhost:8787/openapi.json
+```
+
+This JSON file can be imported into API development tools like Postman or Insomnia.
+
+## Development
+
+When adding new MCP tools, make sure to document them in the OpenAPI registry in `src/index.ts` to keep the documentation in sync with the implementation.
+
+## Deploy to Cloudflare
+
+Follow the standard deployment process. The OpenAPI documentation will be available at your worker's URL:
+
+```
+https://your-worker.your-account.workers.dev/docs
+```
