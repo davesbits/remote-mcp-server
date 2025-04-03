@@ -20,8 +20,8 @@
 	},
 	"kv_namespaces": [
 		{
-			"binding": "OAUTH_KV",
-			"id": "6b507675547c43149c0c9e45116a41ba"
+	           "binding": "OAUTH_KV",
+        "id": "a29799dc1d804e5aa460d5727d562cdb"
 		}
 	],
 	"observability": {
@@ -32,3 +32,4 @@
 		"binding": "ASSETS" 
 	}
 }
+    
