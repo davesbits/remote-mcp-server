@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "remote-mcp-server",
+	"name": "flaire-mcp",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-03-10",
 	"migrations": [
@@ -14,7 +14,7 @@
 			{
 				"class_name": "MyMCP",
 				"name": "MCP_OBJECT",
-				"script_name": "remote-mcp-server"
+				"script_name": "flaire-mcp"
 			}
 		]
 	},
@@ -30,6 +30,10 @@
 	"assets": { 
 		"directory": "./static/", 
 		"binding": "ASSETS" 
+	},
+	"vars": {
+		"API_KEY": "eecd7665b22349e3be49fa67665cb9eb2cb28",
+		"BRAVE_API_KEY": "eecd7665b22349e3be49fa67665cb9eb2cb28",
+		"AUTH_TOKEN": "eecd7665b22349e3be49fa67665cb9eb2cb28"
 	}
 }
-    
