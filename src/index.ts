@@ -147,7 +147,7 @@ const appHandler = {
 const apiHandler = new SseHandler();
 
 // Export the OAuth handler as the default
-export default new OAuthProvider({
+const oauthProvider = new OAuthProvider({
     apiRoute: "/sse",
     // Pass the API handler
     apiHandler: apiHandler as any,
@@ -156,3 +156,13 @@ export default new OAuthProvider({
     tokenEndpoint: "/token",
     clientRegistrationEndpoint: "/register",
 });
+
+export default {
+    async fetch(request: Request, env: any, ctx: any) {
+        const url = new URL(request.url);
+        if (url.pathname === '/sse') {
+            return apiHandler.fetch(request, env);
+        }
+        return (oauthProvider as any).fetch(request, env, ctx);
+    }
+};
